@@ -1,0 +1,104 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IceCreamClassExample
+{
+class IceCream
+{
+// (1) private data members -- represent attributes of the class
+private int scoops;
+private string flavor;
+
+// (2) Constructor(s) -- initialize the private data members
+public IceCream() // Default Constructor -- has no parameters
+{
+scoops = 1;
+flavor = "Strawberry";
+}
+
+// Parameterized Constructor -- takes input data
+public IceCream(string newFlavor, int newScoop)
+{
+scoops = newScoop;
+flavor = newFlavor;
+}
+
+// (3) Properties -- these allow Read/Write access to private data members
+
+// Read / Write Property
+public string Flavor
+{
+get // READ
+{
+return flavor; // allows read access to private data member
+}
+set // Write
+{
+flavor = value; // allows write access to private data member
+}
+}
+
+// Read-Only Property
+public int Scoops
+{
+get
+{
+return scoops;
+}
+}
+
+
+// (4) Methods -- provide utility to the class
+// Note: Accessor and Mutator methods are the only way
+// to access private data members in some languages,
+// such as C++. 
+// ACCESSOR METHOD -- Get Method -- READ method
+public string GetFlavor()
+{
+return flavor;
+}
+
+// MUTATOR METHOD -- Set Method -- Write method
+public void SetFlavor(string newFlavor)
+{
+flavor = newFlavor;
+}
+
+// NewScoop method -- add 1 scoop to icecream
+// input parameters: none needed
+// return value? -- none needed
+public void NewScoop()
+{
+scoops++; // add one to scoops
+// scoops = scoops + 1; equivalent 
+}
+
+// AddScoops method -- add number of scoops passed by user
+// input parameter -- # scoops to add
+// return value: none needed
+public void AddScoops(int newScoops)
+{
+scoops += newScoops;
+// scoops = scoops + newScoops; equivalent 
+}
+
+// Print method -- print private data member to screen in
+// user friendly format
+// input parameters -- none
+// return value ? -- none
+public void Print()
+{
+Console.WriteLine("{0} icecream has {1} scoops.", flavor, scoops);
+}
+
+// Overriding the default ToString() method
+public override string ToString()
+{
+return String.Format("{0} icecream has {1} scoops.", flavor, scoops);
+}
+
+}
+}
